@@ -1,0 +1,38 @@
+#version 330 core
+
+in vec3 Position_worldspace;
+in vec3 Normal_cameraspace;
+in vec3 EyeDirection_cameraspace;
+in vec3 LightDirection_cameraspace;
+in vec3 Normal_worldspace;
+in vec3 EyeDirection_worldspace;
+
+out vec3 color;
+
+uniform vec3 LightPosition_worldspace;
+void main()
+{	
+	vec3 LightColor = vec3(1,0,0);
+	float LightPower = 50.0f;
+	
+	float distance = length(LightPosition_worldspace - Position_worldspace);
+
+	vec3 normal = normalize(Normal_cameraspace);
+	vec3 light_dir = normalize(LightDirection_cameraspace);
+	float cos_theta = clamp(dot(normal, light_dir),0,1);
+	
+	vec3 eye_normal = normalize(EyeDirection_cameraspace);
+	vec3 reflection = reflect(-light_dir, normal);
+	float cos_alpha = clamp(dot(eye_normal, reflection),0,1);
+
+	vec3 eye_world = normalize(EyeDirection_worldspace);
+	vec3 normal_world = normalize(Normal_worldspace);
+	float rim = 1.0 - max(dot(eye_world, normal_world), 0.0);
+	float rim_strength = 4.0f;
+	
+	float mul = step(0.3f, cos_theta) * step(cos_theta, 0.7f) * 0.3f 
+			  + step(0.7f, cos_theta) * 0.7f;
+	vec3 base_color =  LightColor * LightPower * mul / (distance * distance); 
+	base_color = base_color + LightColor * LightPower * pow(cos_alpha, 3) / (distance * distance);
+	color= base_color + pow(rim, rim_strength) * vec3(0,1,1);
+}

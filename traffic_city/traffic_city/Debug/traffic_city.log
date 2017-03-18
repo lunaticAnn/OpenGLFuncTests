@@ -1,0 +1,5 @@
+﻿  main.cpp
+c:\users\luna\documents\visual studio 2015\projects\traffic_city\traffic_city\main.cpp(3): warning C4005: '_CRT_SECURE_NO_WARNINGS': macro redefinition
+  c:\users\luna\documents\visual studio 2015\projects\traffic_city\traffic_city\main.cpp(3): note: command-line arguments:  see previous definition of '_CRT_SECURE_NO_WARNINGS'
+  traffic_city.vcxproj -> C:\Users\Luna\documents\visual studio 2015\Projects\traffic_city\Debug\traffic_city.exe
+  traffic_city.vcxproj -> C:\Users\Luna\documents\visual studio 2015\Projects\traffic_city\Debug\traffic_city.pdb (Partial PDB)
