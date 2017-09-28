@@ -65,3 +65,10 @@ $RECYCLE.BIN/
 
 # Windows shortcuts
 *.lnk
+
+#project meta
+*.tlog
+
+#glm package data
+*.html
+\docs
