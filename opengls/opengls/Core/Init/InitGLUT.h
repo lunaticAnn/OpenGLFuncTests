@@ -5,9 +5,10 @@
 #include <iostream>
 #include "InitGLEW.h"
 #include "Ilistener.h"
+#include "../../Managers/SceneManager.h"
 
 namespace Core {
-	namespace Init {//two namespaces
+	namespace Init {
 
 		class Init_GLUT {
 
@@ -24,7 +25,7 @@ namespace Core {
 			void exitFullscreen();
 			static void printOpenGLInfo(const Core::WindowInfo& windowInfo,
 				const Core::ContextInfo& context);
-			static void setListener(Core::IListener*& iListener);
+			static void setListener(Managers::SceneManager*& iListener);
 		private:
 			static void idleCallback(void);
 			static void displayCallback(void);

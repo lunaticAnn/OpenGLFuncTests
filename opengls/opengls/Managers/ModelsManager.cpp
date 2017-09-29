@@ -1,0 +1,53 @@
+#include "ModelsManager.h"
+
+using namespace Managers;
+using namespace Rendering;
+
+ModelsManager::ModelsManager(){
+	Models::Cube* cube = new Models::Cube();
+	cube->SetProgram(ShaderManager::GetShader("colorShader"));
+	cube->Create();
+	gameModelList["cube0"] = cube;
+}
+
+ModelsManager::~ModelsManager(){
+	for (auto model : gameModelList)
+	{
+		delete model.second;
+	}
+	gameModelList.clear();
+}
+
+void ModelsManager::DeleteModel(const std::string& gameModelName){
+	IGameObject* model = gameModelList[gameModelName];
+	model->Destroy();
+	gameModelList.erase(gameModelName);
+}
+
+const IGameObject& ModelsManager::GetModel(const std::string& gameModelName) const{
+	return (*gameModelList.at(gameModelName));
+}
+
+void ModelsManager::Update(){
+	
+	for (auto model : gameModelList){
+		model.second->Update();
+	}
+}
+
+void ModelsManager::Draw(){
+	for (auto model : gameModelList){
+		model.second->Draw();
+	}
+}
+
+void ModelsManager::Draw(const glm::mat4& projection_matrix,
+	const glm::mat4& view_matrix) {
+	for (auto model : gameModelList) {
+		model.second->Draw(projection_matrix, view_matrix);
+	}
+}
+
+void ModelsManager::SetModel(const std::string& gameObjectName, IGameObject* gameObject){
+	gameModelList[gameObjectName.c_str()] = gameObject;
+}

@@ -1,9 +1,11 @@
 ﻿C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V140\Microsoft.CppBuild.targets(392,5): warning MSB8028: The intermediate directory (Debug\) contains files shared from another project (opengls.vcxproj).  This can lead to incorrect clean and rebuild behavior.
-  ShaderManager.cpp
+  Model.cpp
+  Cube.cpp
+  Generating Code...
+  Skipping... (no relevant changes detected)
   SceneManager.cpp
+  ModelsManager.cpp
   Main.cpp
   InitGLUT.cpp
-  Generating Code...
-c:\users\luna\documents\visual studio 2015\projects\opengls\opengls\managers\shadermanager.cpp(99): warning C4715: 'Managers::ShaderManager::CreateProgram': not all control paths return a value
-  opengls.vcxproj -> C:\Users\Luna\documents\visual studio 2015\Projects\opengls\Debug\SimpleGameEngine.exe
-  opengls.vcxproj -> C:\Users\Luna\documents\visual studio 2015\Projects\opengls\Debug\SimpleGameEngine.pdb (Full PDB)
+  opengls.vcxproj -> C:\Users\Luna\Documents\GitHub\OpenGLGameEngine\opengls\Debug\SimpleGameEngine.exe
+  opengls.vcxproj -> C:\Users\Luna\Documents\GitHub\OpenGLGameEngine\opengls\Debug\SimpleGameEngine.pdb (Full PDB)

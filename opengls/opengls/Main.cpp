@@ -1,18 +1,28 @@
 #include "Core\Init\InitGLUT.h"
-using namespace Core;
 #include "Managers\SceneManager.h"
-int main(int argc, char **argv){
-	WindowInfo window(std::string("window1"),
-		400, 200,
-		800, 600, 
-		true);
+#include "Rendering/Models/Cube.h"
 
-	ContextInfo context(4, 3, true);
+using namespace Core;
+using namespace Init;
+int main(int argc, char **argv){
+	WindowInfo window(std::string("in2gpu OpenGL Beginner Tutorial"), 400, 200, 800, 600, true);
+	ContextInfo context(4, 5, true);
 	FramebufferInfo frameBufferInfo(true, true, true, true);
-	Init::Init_GLUT::init(window, context, frameBufferInfo);
-	IListener* scene = new Managers::SceneManager();
-	Init::Init_GLUT::setListener(scene);
-	Init::Init_GLUT::run();
-	
+
+	Init_GLUT::init(window, context, frameBufferInfo);
+
+	Managers::SceneManager* scene = new Managers::SceneManager();
+	Init_GLUT::setListener(scene);
+
+	Rendering::Models::Cube* cube = new Rendering::Models::Cube();
+	cube->SetProgram(Managers::ShaderManager::GetShader("colorShader"));
+	cube->Create();
+
+	scene->GetModelsManager()->SetModel("cube", cube);
+
+
+	Init_GLUT::run();
+
+	delete scene;
 	return 0;
 }

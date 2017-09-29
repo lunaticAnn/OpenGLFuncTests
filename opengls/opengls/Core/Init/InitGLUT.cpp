@@ -109,6 +109,6 @@ void Init_GLUT::printOpenGLInfo(const Core::WindowInfo& windowInfo,
 	std::cout << "GLUT:\tOpenGl version: " << version << std::endl;
 }
 
-void Init_GLUT::setListener(Core::IListener*& iListener){
+void Init_GLUT::setListener(Managers::SceneManager*& iListener){
 	listener = iListener;
 }
