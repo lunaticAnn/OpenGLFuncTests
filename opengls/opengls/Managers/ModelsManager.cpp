@@ -28,8 +28,7 @@ const IGameObject& ModelsManager::GetModel(const std::string& gameModelName) con
 	return (*gameModelList.at(gameModelName));
 }
 
-void ModelsManager::Update(){
-	
+void ModelsManager::Update(){	
 	for (auto model : gameModelList){
 		model.second->Update();
 	}

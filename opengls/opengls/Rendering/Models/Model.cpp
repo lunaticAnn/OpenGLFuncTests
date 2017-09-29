@@ -25,8 +25,7 @@ void Model::Update(){
 	TransformMatrix = TranslationMatrix * RotationMatrix * ScaleMatrix;	
 }
 
-void Model::SetProgram(GLuint program)
-{
+void Model::SetProgram(GLuint program){
 	this->program = program;
 }
 

@@ -67,6 +67,7 @@ void Init_GLUT::displayCallback(){
 		listener->notifyDisplayFrame();
 		glutSwapBuffers();
 		listener->notifyEndFrame();
+		Sleep(20);
 	}
 }
 
