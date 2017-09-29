@@ -68,6 +68,7 @@ $RECYCLE.BIN/
 
 #project meta
 *.tlog
+*.opendb
 
 #glm package data
 *.html
