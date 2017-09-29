@@ -151,19 +151,22 @@
   <ItemGroup>
     <ClCompile Include="Core\Init\InitGLEW.cpp" />
     <ClCompile Include="Core\Init\InitGLUT.cpp" />
-    <ClCompile Include="Core\ShaderManager.cpp" />
     <ClCompile Include="Core\GameModels.cpp" />
     <ClCompile Include="Main.cpp" />
+    <ClCompile Include="Managers\SceneManager.cpp" />
+    <ClCompile Include="Managers\ShaderManager.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Core\GameModels.h" />
     <ClInclude Include="Core\Init\ContextInfo.h" />
     <ClInclude Include="Core\Init\FrameBufferInfo.h" />
+    <ClInclude Include="Core\Init\IListener.h" />
     <ClInclude Include="Core\Init\InitGLEW.h" />
     <ClInclude Include="Core\Init\InitGLUT.h" />
     <ClInclude Include="Core\Init\WindowInfo.h" />
-    <ClInclude Include="Core\ShaderManager.h" />
     <ClInclude Include="Core\VertexFormat.h" />
+    <ClInclude Include="Managers\SceneManager.h" />
+    <ClInclude Include="Managers\ShaderManager.h" />
     <ClInclude Include="resource.h" />
   </ItemGroup>
   <ItemGroup>

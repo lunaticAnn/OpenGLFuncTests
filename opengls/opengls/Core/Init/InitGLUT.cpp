@@ -1,6 +1,8 @@
 #include "InitGLUT.h"
 
 using namespace Core::Init;
+Core::IListener* Init_GLUT::listener = NULL;
+Core::WindowInfo Init_GLUT::windowInformation;
 
 void Init_GLUT::init(const Core::WindowInfo& windowInfo,
 	const Core::ContextInfo& contextInfo,
@@ -10,14 +12,13 @@ void Init_GLUT::init(const Core::WindowInfo& windowInfo,
 	int fakeargc = 1;
 	char *fakeargv[] = { "fake", NULL };
 	glutInit(&fakeargc, fakeargv);
-
+	windowInformation = windowInfo;
 	if (contextInfo.core){
 		glutInitContextVersion(contextInfo.major_version,
 			contextInfo.minor_version);
 		glutInitContextProfile(GLUT_CORE_PROFILE);
 	}
-	else{
-		
+	else{		
 		glutInitContextProfile(GLUT_COMPATIBILITY_PROFILE);
 	}
 
@@ -40,14 +41,12 @@ void Init_GLUT::init(const Core::WindowInfo& windowInfo,
 		GLUT_ACTION_GLUTMAINLOOP_RETURNS);
 
 	printOpenGLInfo(windowInfo, contextInfo);
-
 }
 
 //starts the rendering Loop
 void Init_GLUT::run(){
 	std::cout << "GLUT:\t Start Running " << std::endl;
 	glutMainLoop();
-	getchar();
 }
 
 void Init_GLUT::close()
@@ -63,13 +62,25 @@ void Init_GLUT::idleCallback(void)
 }
 
 void Init_GLUT::displayCallback(){
-	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-	glClearColor(0.0, 0.0, 0.0, 1);
-	glutSwapBuffers();
+	if (listener){
+		listener->notifyBeginFrame();
+		listener->notifyDisplayFrame();
+		glutSwapBuffers();
+		listener->notifyEndFrame();
+	}
 }
 
 void Init_GLUT::reshapeCallback(int width, int height){
-
+	if (windowInformation.isReshapable == true){
+		if (listener){
+			listener->notifyReshape(width,
+				height,
+				windowInformation.width,
+				windowInformation.height);
+		}
+		windowInformation.width = width;
+		windowInformation.height = height;
+	}
 }
 
 void Init_GLUT::closeCallback(){
@@ -96,4 +107,8 @@ void Init_GLUT::printOpenGLInfo(const Core::WindowInfo& windowInfo,
 	std::cout << "GLUT:\tVendor : " << vendor << std::endl;
 	std::cout << "GLUT:\tRenderer : " << renderer << std::endl;
 	std::cout << "GLUT:\tOpenGl version: " << version << std::endl;
+}
+
+void Init_GLUT::setListener(Core::IListener*& iListener){
+	listener = iListener;
 }

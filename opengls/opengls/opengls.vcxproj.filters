@@ -19,6 +19,9 @@
     <Filter Include="Core\init">
       <UniqueIdentifier>{3fcbd10f-759e-4987-ada5-fc20610c850d}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Managers">
+      <UniqueIdentifier>{346f3a37-3710-4360-9d4f-235bac1aff57}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp">
@@ -27,14 +30,17 @@
     <ClCompile Include="Core\GameModels.cpp">
       <Filter>Core</Filter>
     </ClCompile>
-    <ClCompile Include="Core\ShaderManager.cpp">
-      <Filter>Core</Filter>
-    </ClCompile>
     <ClCompile Include="Core\Init\InitGLEW.cpp">
       <Filter>Core\init</Filter>
     </ClCompile>
     <ClCompile Include="Core\Init\InitGLUT.cpp">
       <Filter>Core\init</Filter>
+    </ClCompile>
+    <ClCompile Include="Managers\ShaderManager.cpp">
+      <Filter>Managers</Filter>
+    </ClCompile>
+    <ClCompile Include="Managers\SceneManager.cpp">
+      <Filter>Managers</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -46,9 +52,6 @@
     </ClInclude>
     <ClInclude Include="resource.h">
       <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Core\ShaderManager.h">
-      <Filter>Core</Filter>
     </ClInclude>
     <ClInclude Include="Core\Init\FrameBufferInfo.h">
       <Filter>Core\init</Filter>
@@ -64,6 +67,15 @@
     </ClInclude>
     <ClInclude Include="Core\Init\ContextInfo.h">
       <Filter>Core\init</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Init\IListener.h">
+      <Filter>Core\init</Filter>
+    </ClInclude>
+    <ClInclude Include="Managers\ShaderManager.h">
+      <Filter>Managers</Filter>
+    </ClInclude>
+    <ClInclude Include="Managers\SceneManager.h">
+      <Filter>Managers</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
