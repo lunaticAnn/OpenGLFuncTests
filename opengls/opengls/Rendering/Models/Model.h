@@ -9,7 +9,7 @@
 
 namespace Rendering
 {
-	namespace Models //create another namespace
+	namespace Models 
 	{
 		class Model :public IGameObject
 		{
@@ -18,6 +18,7 @@ namespace Rendering
 			virtual ~Model();
 			// methods from interface
 			virtual void Draw() override;
+			virtual void Create() override;
 			virtual void Draw(const glm::mat4& projection_matrix,
 				const glm::mat4& view_matrix) override;
 			void Update();

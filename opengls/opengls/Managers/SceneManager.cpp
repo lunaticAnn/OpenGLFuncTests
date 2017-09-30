@@ -9,13 +9,15 @@ SceneManager::SceneManager()
 	shader_manager->CreateProgram("colorShader",
 		"Shaders\\Vertex_Shader.glsl",
 		"Shaders\\Fragment_Shader.glsl");
-
+	//=================TODO:change this to a camera object!!====================
 	view_matrix = glm::mat4(1.0f, 0.0f, 0.0f, 0.0f,
 		0.0f, 1.0f, 0.0f, 0.0f,
 		0.0f, 0.0f, -1.0f, 0.0f,
 		0.0f, 0.0f, 10.0f, 1.0f);
-
+	//=================TODO:change this to a camera object!!====================
 	model_manager = new ModelsManager();
+	system_manager = new SystemManager();
+	system_manager->RegisterModels(model_manager);
 }
 
 SceneManager::~SceneManager(){
@@ -24,6 +26,7 @@ SceneManager::~SceneManager(){
 }
 
 void SceneManager::notifyBeginFrame(){
+	system_manager->Update();
 	model_manager->Update();
 }
 
@@ -46,7 +49,6 @@ void SceneManager::notifyReshape(int width,
 		(float)glutGet(GLUT_WINDOW_HEIGHT);
 	//clipping planes
 	float angle = 45.0f, near1 = 0.1f, far1 = 2000.0f;
-
 	projection_matrix[0][0] = 1.0f / (ar * tan(angle / 2.0f));
 	projection_matrix[1][1] = 1.0f / tan(angle / 2.0f);
 	projection_matrix[2][2] = (-near1 - far1) / (near1 - far1);

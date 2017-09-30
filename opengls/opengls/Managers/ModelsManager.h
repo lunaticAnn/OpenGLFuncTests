@@ -22,7 +22,7 @@ namespace Managers
 		void DeleteModel(const std::string& gameModelName);
 		const IGameObject& GetModel(const std::string& gameModelName) const;
 		void SetModel(const std::string& gameObjectName, IGameObject* gameObject);
-
+		void SetModels(const std::string& gameObjectGroupName, std::vector<Models::Model*>* gameObjects);
 
 	private:
 		std::map<std::string, IGameObject*> gameModelList;

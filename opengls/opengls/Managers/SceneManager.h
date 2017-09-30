@@ -1,6 +1,7 @@
 #pragma once
 #include "ShaderManager.h"
 #include "ModelsManager.h"
+#include "SystemManager.h"
 #include "../Core/Init/IListener.h"
 namespace Managers
 {
@@ -21,6 +22,7 @@ namespace Managers
 		private:
 			Managers::ShaderManager* shader_manager;
 			Managers::ModelsManager* model_manager;
+			Managers::SystemManager* system_manager;
 			glm::mat4 projection_matrix;
 			glm::mat4 view_matrix;
 	};

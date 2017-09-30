@@ -17,6 +17,10 @@ void Model::Draw() {
 
 }
 
+void Model::Create() {
+
+}
+
 void Model::Update(){
 	TranslationMatrix = glm::translate(glm::mat4(), translation);	
 	glm::quat MyQuaternion = glm::quat(rotation);

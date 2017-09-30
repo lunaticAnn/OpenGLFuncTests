@@ -4,7 +4,7 @@ using namespace Models;
 
 #define PI 3.14159265
 
-Cube::Cube(const glm::vec3& t = glm::vec3(0.0), const glm::vec3& s = glm::vec3(1.0), const glm::vec3& r = glm::vec3(0.0)){
+Cube::Cube(const glm::vec3& t, const glm::vec3& s, const glm::vec3& r){
 	translation = t;
 	scale = s;
 	rotation = r;
@@ -128,9 +128,6 @@ void Cube::Create(){
 }
 
 void Cube::Update(){
-	time(&timer);
-	rotation = rotation + glm::vec3(0.0,0.1,0.0);
-	translation +=  glm::vec3(0.0, 0.1* glm::sin(timer),0.0);
 	Model::Update();
 }
 

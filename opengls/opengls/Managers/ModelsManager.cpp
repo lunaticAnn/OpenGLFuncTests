@@ -4,10 +4,12 @@ using namespace Managers;
 using namespace Rendering;
 
 ModelsManager::ModelsManager(){
+	/*
 	Models::Cube* cube = new Models::Cube();
 	cube->SetProgram(ShaderManager::GetShader("colorShader"));
 	cube->Create();
 	gameModelList["cube0"] = cube;
+*/
 }
 
 ModelsManager::~ModelsManager(){
@@ -49,4 +51,13 @@ void ModelsManager::Draw(const glm::mat4& projection_matrix,
 
 void ModelsManager::SetModel(const std::string& gameObjectName, IGameObject* gameObject){
 	gameModelList[gameObjectName.c_str()] = gameObject;
+}
+
+void ModelsManager::SetModels(const std::string& gameObjectGroupName, std::vector<Models::Model*>* gameObjects){
+	for(size_t i = 0; i < gameObjects->size(); i++){
+		gameModelList[(gameObjectGroupName + std::to_string(i)).c_str()] = (*gameObjects)[i];
+		(*gameObjects)[i]->SetProgram(ShaderManager::GetShader("colorShader"));
+		(*gameObjects)[i]->Create();
+	}
+
 }

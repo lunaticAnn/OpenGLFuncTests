@@ -14,13 +14,6 @@ int main(int argc, char **argv){
 	Managers::SceneManager* scene = new Managers::SceneManager();
 	Init_GLUT::setListener(scene);
 
-	Rendering::Models::Cube* cube = new Rendering::Models::Cube();
-	cube->SetProgram(Managers::ShaderManager::GetShader("colorShader"));
-	cube->Create();
-
-	scene->GetModelsManager()->SetModel("cube", cube);
-
-
 	Init_GLUT::run();
 
 	delete scene;
