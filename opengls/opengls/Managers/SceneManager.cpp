@@ -9,12 +9,10 @@ SceneManager::SceneManager()
 	shader_manager->CreateProgram("colorShader",
 		"Shaders\\Vertex_Shader.glsl",
 		"Shaders\\Fragment_Shader.glsl");
-	//=================TODO:change this to a camera object!!====================
-	view_matrix = glm::mat4(1.0f, 0.0f, 0.0f, 0.0f,
-		0.0f, 1.0f, 0.0f, 0.0f,
-		0.0f, 0.0f, -1.0f, 0.0f,
-		0.0f, 0.0f, 10.0f, 1.0f);
-	//=================TODO:change this to a camera object!!====================
+
+	camera = new Camera(glm::vec3(5.0,5.0,5.0), glm::vec3(0.0,0.0,0.0));
+	view_matrix = camera -> ViewMatrix();
+	
 	model_manager = new ModelsManager();
 	system_manager = new SystemManager();
 	system_manager->RegisterModels(model_manager);
@@ -33,6 +31,9 @@ void SceneManager::notifyBeginFrame(){
 void SceneManager::notifyDisplayFrame(){
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 	glClearColor(0.0, 0.0, 0.0, 1.0);
+	//update camera here
+	camera->Update();
+	view_matrix = camera->ViewMatrix();
 	model_manager->Draw();
 	model_manager->Draw(projection_matrix, view_matrix);
 }
