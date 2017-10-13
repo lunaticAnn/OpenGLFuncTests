@@ -21,8 +21,8 @@ ParticleSystem::~ParticleSystem() {
 
 void ParticleSystem::Update(){
 //calculate speed and update locations accordingly
-	time(&timer);
-	target_pos = glm::vec3(5.0 *glm::sin(timer), 5.0 * glm::cos(timer), 0.0);
+	timer = clock();
+	target_pos = glm::vec3(5.0 * sin(timer*0.002),0.0, 5.0*cos(timer*0.002));
 	for (size_t i = 0; i < particle_count; i++) {
 		//update initial positions and scale
 		glm::vec3 new_pos = models[i]->translation +

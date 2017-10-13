@@ -1,7 +1,13 @@
 ﻿C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V140\Microsoft.CppBuild.targets(392,5): warning MSB8028: The intermediate directory (Debug\) contains files shared from another project (opengls.vcxproj).  This can lead to incorrect clean and rebuild behavior.
-cl : Command line warning D9028: minimal rebuild failure, reverting to normal build
+  ModelsManager.cpp
+  Generating Code...
+  Compiling...
+  InitGLUT.cpp
+  Generating Code...
+  Skipping... (no relevant changes detected)
   ParticleSystem.cpp
-c:\users\luna\documents\github\openglgameengine\opengls\opengls\rendering\systems\particlesystem.cpp(12): warning C4056: overflow in floating-point constant arithmetic
-c:\users\luna\documents\github\openglgameengine\opengls\opengls\rendering\systems\particlesystem.cpp(15): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+  SystemManager.cpp
+  SceneManager.cpp
+  Main.cpp
   opengls.vcxproj -> C:\Users\Luna\Documents\GitHub\OpenGLGameEngine\opengls\Debug\SimpleGameEngine.exe
   opengls.vcxproj -> C:\Users\Luna\Documents\GitHub\OpenGLGameEngine\opengls\Debug\SimpleGameEngine.pdb (Full PDB)

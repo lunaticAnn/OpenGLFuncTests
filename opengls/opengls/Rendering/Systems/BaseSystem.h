@@ -12,7 +12,7 @@ namespace Rendering{
 				std::vector<Models::Model*>* GetModels(){return &models;};
 			protected:
 				std::vector<Models::Model*> models;
-				time_t timer;
+				int timer;
 		};
 	}
 }

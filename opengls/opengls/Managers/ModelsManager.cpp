@@ -4,12 +4,12 @@ using namespace Managers;
 using namespace Rendering;
 
 ModelsManager::ModelsManager(){
-	/*
-	Models::Cube* cube = new Models::Cube();
+	
+	/*Models::Cube* cube = new Models::Cube();
 	cube->SetProgram(ShaderManager::GetShader("colorShader"));
 	cube->Create();
-	gameModelList["cube0"] = cube;
-*/
+	gameModelList["cube0"] = cube;*/
+
 }
 
 ModelsManager::~ModelsManager(){

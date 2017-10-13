@@ -20,6 +20,7 @@ namespace Managers
 
 			Managers::ModelsManager* GetModelsManager();
 		private:
+			Rendering::Camera* camera;
 			Managers::ShaderManager* shader_manager;
 			Managers::ModelsManager* model_manager;
 			Managers::SystemManager* system_manager;

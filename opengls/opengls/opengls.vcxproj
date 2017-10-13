@@ -156,6 +156,7 @@
     <ClCompile Include="Managers\SceneManager.cpp" />
     <ClCompile Include="Managers\ShaderManager.cpp" />
     <ClCompile Include="Managers\SystemManager.cpp" />
+    <ClCompile Include="Rendering\Models\Camera.cpp" />
     <ClCompile Include="Rendering\Models\Cube.cpp" />
     <ClCompile Include="Rendering\Models\Model.cpp" />
     <ClCompile Include="Rendering\Models\Quad.cpp" />
@@ -174,6 +175,7 @@
     <ClInclude Include="Managers\ShaderManager.h" />
     <ClInclude Include="Managers\SystemManager.h" />
     <ClInclude Include="Rendering\IGameObject.h" />
+    <ClInclude Include="Rendering\Models\Camera.h" />
     <ClInclude Include="Rendering\Models\Cube.h" />
     <ClInclude Include="Rendering\Models\Model.h" />
     <ClInclude Include="Rendering\Models\Quad.h" />
