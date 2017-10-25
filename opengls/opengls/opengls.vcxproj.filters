@@ -72,6 +72,9 @@
     <ClCompile Include="Rendering\Models\Camera.cpp">
       <Filter>Rendering\Models</Filter>
     </ClCompile>
+    <ClCompile Include="Rendering\Models\CustomModel.cpp">
+      <Filter>Rendering\Models</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="resource.h">
@@ -132,6 +135,9 @@
       <Filter>Rendering\Systems</Filter>
     </ClInclude>
     <ClInclude Include="Rendering\Models\Camera.h">
+      <Filter>Rendering\Models</Filter>
+    </ClInclude>
+    <ClInclude Include="Rendering\Models\CustomModel.h">
       <Filter>Rendering\Models</Filter>
     </ClInclude>
   </ItemGroup>

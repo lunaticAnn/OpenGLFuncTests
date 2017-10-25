@@ -2,8 +2,8 @@
 
 using namespace Managers;
 SystemManager::SystemManager(){
-	Systems::ParticleSystem* particle_system = new Systems::ParticleSystem(100);
-	systemNameList["marching_cube"] = particle_system;
+	//Systems::ParticleSystem* particle_system = new Systems::ParticleSystem(100);
+	//systemNameList["marching_cube"] = particle_system;
 }
 
 SystemManager::~SystemManager(){

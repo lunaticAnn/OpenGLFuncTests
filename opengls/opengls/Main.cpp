@@ -5,7 +5,7 @@
 using namespace Core;
 using namespace Init;
 int main(int argc, char **argv){
-	WindowInfo window(std::string("in2gpu OpenGL Beginner Tutorial"), 400, 200, 800, 600, true);
+	WindowInfo window(std::string("my window"), 400, 200, 800, 600, true);
 	ContextInfo context(4, 5, true);
 	FramebufferInfo frameBufferInfo(true, true, true, true);
 

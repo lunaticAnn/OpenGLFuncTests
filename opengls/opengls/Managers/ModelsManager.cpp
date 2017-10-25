@@ -5,10 +5,10 @@ using namespace Rendering;
 
 ModelsManager::ModelsManager(){
 	
-	/*Models::Cube* cube = new Models::Cube();
-	cube->SetProgram(ShaderManager::GetShader("colorShader"));
-	cube->Create();
-	gameModelList["cube0"] = cube;*/
+	Models::CustomModel* gourd = new Models::CustomModel("lamp.obj",glm::vec3(0.0, -0.5,-0.0),glm::vec3(0.4));
+	gourd->SetProgram(ShaderManager::GetShader("colorShader"));
+	gourd->Create();
+	gameModelList["gourd"] = gourd;
 
 }
 
