@@ -50,7 +50,6 @@ void GameModels::DeleteModel(const std::string& gameModelName){
 	glDeleteBuffers(model.vbos.size(), &model.vbos[0]);
 	model.vbos.clear();
 	GameModelList.erase(gameModelName);
-
 }
 
 unsigned int GameModels::GetModel(const std::string& gameModelName){

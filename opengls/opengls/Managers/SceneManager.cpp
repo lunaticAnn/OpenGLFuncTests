@@ -3,8 +3,7 @@ using namespace Managers;
 
 SceneManager::SceneManager()
 {
-	glEnable(GL_DEPTH_TEST);
-
+	glEnable(GL_DEPTH_TEST);	
 	shader_manager = new ShaderManager();
 	shader_manager->CreateProgram("colorShader",
 		"Shaders\\Vertex_Shader.glsl",
@@ -21,6 +20,7 @@ SceneManager::SceneManager()
 SceneManager::~SceneManager(){
 	delete shader_manager;
 	delete model_manager;
+	delete system_manager;
 }
 
 void SceneManager::notifyBeginFrame(){
