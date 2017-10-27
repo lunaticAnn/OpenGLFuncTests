@@ -74,5 +74,7 @@ $RECYCLE.BIN/
 *.html
 \docs
 
+opengls\*.db
 *.pdb
-opengls\opengls\Debug\*
+\opengls\Debug
+\opengls\opengls\Debug
