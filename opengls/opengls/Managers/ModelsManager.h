@@ -16,6 +16,12 @@ namespace Managers
 	public:
 		ModelsManager();
 		~ModelsManager();
+		enum ModelType{
+			Cube,
+			Triangle,
+			LineRenderer,
+			CustomModel
+		};
 
 		void Draw();
 		void Draw(const glm::mat4& projection_matrix,

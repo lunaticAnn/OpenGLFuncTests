@@ -2,7 +2,8 @@
 using namespace Rendering;
 using namespace Models;
 
-Model::Model() {}
+Model::Model() {
+}
 
 Model::~Model(){
 	Destroy();
@@ -43,8 +44,7 @@ const std::vector<GLuint>& Model::GetVbos() const
 	return vbos;
 }
 
-void Model::Destroy()
-{
+void Model::Destroy(){
 	glDeleteVertexArrays(1, &vao);
 	glDeleteBuffers(vbos.size(), &vbos[0]);
 	vbos.clear();

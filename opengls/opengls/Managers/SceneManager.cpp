@@ -60,3 +60,12 @@ void SceneManager::notifyReshape(int width,
 Managers::ModelsManager* SceneManager::GetModelsManager(){
 	return model_manager;
 }
+
+void SceneManager::AddModel(Models::Model* m, const std::string& name) {
+	model_manager->SetModel(name, m);
+	m->model_name = name;
+}
+
+void SceneManager::RemoveModel(Models::Model* m) {
+	model_manager->DeleteModel(m->model_name);
+}

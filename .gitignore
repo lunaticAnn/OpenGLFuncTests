@@ -75,6 +75,7 @@ $RECYCLE.BIN/
 \docs
 
 opengls/*.db
-*/*.pdb
+*.pdb
 opengls/Debug/
 opengls/opengls/Debug/
+

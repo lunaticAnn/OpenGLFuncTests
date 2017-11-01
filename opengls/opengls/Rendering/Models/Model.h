@@ -1,10 +1,10 @@
 #pragma once
 #include <vector>
 #include "../IGameObject.h"
-#include "glm\gtx\transform.hpp"
-#include "glm\gtc\quaternion.hpp"
-#include "glm\gtx\quaternion.hpp"
-#include "glm\gtx\string_cast.hpp"
+#include "glm/gtx/transform.hpp"
+#include "glm/gtc/quaternion.hpp"
+#include "glm/gtx/quaternion.hpp"
+#include "glm/gtx/string_cast.hpp"
 
 
 namespace Rendering
@@ -28,9 +28,11 @@ namespace Rendering
 			virtual GLuint GetVao() const override;
 			virtual const std::vector<GLuint>& GetVbos() const override;
 
+			std::string model_name = "";
+
 		protected:
 			GLuint vao;
-			GLuint program;
+			GLuint program;			
 			std::vector<GLuint> vbos;
 		};
 	}

@@ -1,8 +1,8 @@
 #pragma once
 #include "../../Dependencies/glew/glew.h"
 #include "../../Dependencies/freeglut/freeglut.h"
-#include "glm\gtx\transform.hpp"
-#include "glm\gtc\matrix_transform.hpp"
+#include "glm/gtx/transform.hpp"
+#include "glm/gtc/matrix_transform.hpp"
 
 
 namespace Rendering{

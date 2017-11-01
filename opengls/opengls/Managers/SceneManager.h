@@ -19,6 +19,8 @@ namespace Managers
 				int previous_height);
 
 			Managers::ModelsManager* GetModelsManager();
+			void AddModel(Models::Model* m, const std::string& name);
+			void RemoveModel(Models::Model* m);
 		private:
 			Rendering::Camera* camera;
 			Managers::ShaderManager* shader_manager;
