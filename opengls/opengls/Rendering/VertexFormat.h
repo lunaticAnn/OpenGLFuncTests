@@ -4,13 +4,15 @@
 namespace Rendering{
 	struct VertexFormat{
 		glm::vec3 position;
-		glm::vec4 color;
+		glm::vec2 uv;
 		glm::vec3 normal;
-
-		VertexFormat(const glm::vec3 & pos, 
-					const glm::vec4 & col = glm::vec4(1.0)){
+		
+		VertexFormat(const glm::vec3 & pos,
+					const glm::vec2 & uvs = glm::vec2(0.0),
+					const glm::vec3 & norm = glm::vec3(1.0)){
 			position = pos;
-			color = col;			
+			uv = uvs;
+			normal = norm;			
 		}
 		VertexFormat(){}
 	};

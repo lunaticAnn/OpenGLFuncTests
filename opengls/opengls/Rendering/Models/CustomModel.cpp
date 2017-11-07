@@ -51,7 +51,9 @@ void CustomModel::Create(){
 	glEnableVertexAttribArray(0);
 	glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, sizeof(VertexFormat), (void*)0);
 	glEnableVertexAttribArray(1);
-	glVertexAttribPointer(1, 4, GL_FLOAT, GL_FALSE, sizeof(VertexFormat), (void*)(offsetof(VertexFormat, VertexFormat::color)));
+	glVertexAttribPointer(1, 2, GL_FLOAT, GL_FALSE, sizeof(VertexFormat), (void*)(offsetof(VertexFormat, VertexFormat::uv)));
+	glEnableVertexAttribArray(2);
+	glVertexAttribPointer(2, 3, GL_FLOAT, GL_FALSE, sizeof(VertexFormat), (void*)(offsetof(VertexFormat, VertexFormat::normal)));
 	glBindVertexArray(0);
 	this->vao = vao;
 	this->vbos.push_back(vbo);
@@ -63,8 +65,12 @@ void CustomModel::Update(){
 
 void CustomModel::Draw(const glm::mat4& projection_matrix,
 	const glm::mat4& view_matrix) {
-
 	glUseProgram(program);
+	glBindVertexArray(vao);
+
+	glActiveTexture(GL_TEXTURE0);
+	glBindTexture(GL_TEXTURE_2D, texture);
+	glUniform1i(glGetUniformLocation(texture, "texture1"), 0);
 	glUniformMatrix4fv(glGetUniformLocation(program, "model_matrix"), 1,
 		false, &TransformMatrix[0][0]);
 	glUniformMatrix4fv(glGetUniformLocation(program, "view_matrix"), 1,
@@ -77,6 +83,8 @@ void CustomModel::Draw(const glm::mat4& projection_matrix,
 bool CustomModel::LoadFromObj(const std::string& obj_filename){
 	//parse data and save to vs
 	std::vector<unsigned int> vertexIndices;
+	std::vector<unsigned int> uvIndices;
+	std::vector<unsigned int> normIndices;
 	std::vector<glm::vec3> temp_vertices;
 	std::vector<glm::vec2> temp_uvs;
 	std::vector<glm::vec3> temp_normals;
@@ -101,7 +109,7 @@ bool CustomModel::LoadFromObj(const std::string& obj_filename){
 		else if (strcmp(lineHeader, "vt") == 0) {
 			glm::vec2 uv;
 			fscanf(file, "%f %f\n", &uv.x, &uv.y);
-			uv.y = -uv.y;
+			//uv.y = -uv.y;
 			temp_uvs.push_back(uv);
 		}
 		else if (strcmp(lineHeader, "vn") == 0) {
@@ -112,10 +120,26 @@ bool CustomModel::LoadFromObj(const std::string& obj_filename){
 		else if (strcmp(lineHeader, "f") == 0) {
 			//read vertex index and !TRIANGULATE
 			unsigned int arr[100];
+			unsigned int arr_uv[100];
+			unsigned int arr_norm[100];
 			char temp;
 			int i = 0;
 			do {
 				fscanf(file, "%d%c", &arr[i], &temp);
+				if(temp == '/') {
+					//get v
+					int res = fscanf(file, "%d%c", &arr_uv[i], &temp);
+					if (res == 1) {
+						arr_uv[i] = arr[i];
+					}
+					if (temp == '/') {
+						fscanf(file, "%d%c", &arr_norm[i], &temp);
+					}
+				}
+				else{
+					arr_uv[i] = arr[i];
+					arr_norm[i] = arr[i];
+				}
 				i++;
 			} while (temp != '\n');
 
@@ -124,6 +148,12 @@ bool CustomModel::LoadFromObj(const std::string& obj_filename){
 				vertexIndices.push_back(arr[0]);
 				vertexIndices.push_back(arr[n - 1]);
 				vertexIndices.push_back(arr[n]);
+				uvIndices.push_back(arr_uv[0]);
+				uvIndices.push_back(arr_uv[n - 1]);
+				uvIndices.push_back(arr_uv[n]);
+				normIndices.push_back(arr_norm[0]);
+				normIndices.push_back(arr_norm[n - 1]);
+				normIndices.push_back(arr_norm[n]);
 			}
 		}
 		else {
@@ -143,14 +173,27 @@ bool CustomModel::LoadFromObj(const std::string& obj_filename){
 		glm::vec3 v1 = temp_vertices[vertexIndices[i * 3] - 1];		
 		glm::vec3 v2 = temp_vertices[vertexIndices[i * 3 + 1] - 1];		
 		glm::vec3 v3 = temp_vertices[vertexIndices[i * 3 + 2] - 1];		
-		glm::vec3 norm = glm::normalize(glm::cross(v3 - v1, v2 - v1));
-		double shade = glm::dot(norm, glm::vec3(-1.0));
+		glm::vec3 norm = glm::normalize(glm::cross(v2 - v1, v3 - v1));
 		
-		shade = shade < 0.0 ? 0.0 : shade;
-		vert.push_back(VertexFormat(v1, glm::vec4(shade)));
-		vert.push_back(VertexFormat(v2, glm::vec4(shade)));
-		vert.push_back(VertexFormat(v3, glm::vec4(shade)));
+		VertexFormat vf1(v1, glm::vec2(0.0), norm);
+		VertexFormat vf2(v2, glm::vec2(0.0), norm);
+		VertexFormat vf3(v3, glm::vec2(0.0), norm);
+		if (temp_uvs.size() > 0) {
+			vf1.uv = temp_uvs[uvIndices[i * 3] - 1];
+			vf2.uv = temp_uvs[uvIndices[i * 3 + 1] - 1];
+			vf3.uv = temp_uvs[uvIndices[i * 3 + 2] - 1];
+		}
 
+		if (temp_normals.size() > 0) {
+			vf1.normal = temp_normals[normIndices[i * 3] - 1];
+			vf2.normal = temp_normals[normIndices[i * 3 + 1] - 1];
+			vf3.normal = temp_normals[normIndices[i * 3 + 2] - 1];		
+		}
+				
+		vert.push_back(vf1);
+		vert.push_back(vf2);
+		vert.push_back(vf3);
+		
 	}
 	vs = vert;
 	return true;

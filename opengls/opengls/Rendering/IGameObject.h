@@ -16,6 +16,7 @@ namespace Rendering
 			virtual void Update() = 0;
 			virtual void Create() = 0;
 			virtual void SetProgram(GLuint shaderName) = 0;
+			virtual void SetTexture(GLuint textureName) = 0;
 			virtual void Destroy() = 0;
 			
 			virtual GLuint GetVao() const = 0;

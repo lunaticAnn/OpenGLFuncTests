@@ -9,7 +9,7 @@ SceneManager::SceneManager()
 		"Shaders\\Vertex_Shader.glsl",
 		"Shaders\\Fragment_Shader.glsl");
 
-	camera = new Camera(glm::vec3(5.0,2.0,1.0), glm::vec3(0.0,0.0,0.0));
+	camera = new Camera(glm::vec3(15.0,10.0,20.0), glm::vec3(0.0,5.0,0.0));
 	view_matrix = camera -> ViewMatrix();
 	
 	model_manager = new ModelsManager();

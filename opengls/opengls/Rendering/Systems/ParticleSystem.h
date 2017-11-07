@@ -1,7 +1,7 @@
 #pragma once
 #include "BaseSystem.h"
 #include "../Models/Cube.h"
-#include "glm\gtc\random.hpp"
+#include "glm/gtc/random.hpp"
 #include<vector>
 
 #define learn_factor 1.4961f

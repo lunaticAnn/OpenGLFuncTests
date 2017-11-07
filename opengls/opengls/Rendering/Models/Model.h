@@ -23,6 +23,7 @@ namespace Rendering
 				const glm::mat4& view_matrix) override;
 			void Update();
 			virtual void SetProgram(GLuint shaderName) override;
+			virtual void SetTexture(GLuint textureName) override;
 			virtual void Destroy() override;
 
 			virtual GLuint GetVao() const override;
@@ -32,7 +33,8 @@ namespace Rendering
 
 		protected:
 			GLuint vao;
-			GLuint program;			
+			GLuint program;
+			GLuint texture;
 			std::vector<GLuint> vbos;
 		};
 	}

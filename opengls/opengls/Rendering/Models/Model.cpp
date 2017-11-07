@@ -34,13 +34,16 @@ void Model::SetProgram(GLuint program){
 	this->program = program;
 }
 
+void Model::SetTexture(GLuint texture) {
+	this->texture = texture;
+}
+
 GLuint Model::GetVao() const
 {
 	return vao;
 }
 
-const std::vector<GLuint>& Model::GetVbos() const
-{
+const std::vector<GLuint>& Model::GetVbos() const{
 	return vbos;
 }
 

@@ -31,6 +31,9 @@
     <Filter Include="Rendering\Systems">
       <UniqueIdentifier>{0243c536-5079-4552-81b7-8387e469e422}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Rendering\Textures">
+      <UniqueIdentifier>{41a14f00-336d-4a2e-a491-0c159d8cf105}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp">
@@ -51,13 +54,7 @@
     <ClCompile Include="Managers\ModelsManager.cpp">
       <Filter>Managers</Filter>
     </ClCompile>
-    <ClCompile Include="Rendering\Models\Triangle.cpp">
-      <Filter>Rendering\Models</Filter>
-    </ClCompile>
     <ClCompile Include="Rendering\Models\Model.cpp">
-      <Filter>Rendering\Models</Filter>
-    </ClCompile>
-    <ClCompile Include="Rendering\Models\Quad.cpp">
       <Filter>Rendering\Models</Filter>
     </ClCompile>
     <ClCompile Include="Rendering\Models\Cube.cpp">
@@ -74,6 +71,9 @@
     </ClCompile>
     <ClCompile Include="Rendering\Models\CustomModel.cpp">
       <Filter>Rendering\Models</Filter>
+    </ClCompile>
+    <ClCompile Include="Rendering\Textures\texture.cpp">
+      <Filter>Rendering\Textures</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -116,12 +116,6 @@
     <ClInclude Include="Managers\ModelsManager.h">
       <Filter>Managers</Filter>
     </ClInclude>
-    <ClInclude Include="Rendering\Models\Triangle.h">
-      <Filter>Rendering\Models</Filter>
-    </ClInclude>
-    <ClInclude Include="Rendering\Models\Quad.h">
-      <Filter>Rendering\Models</Filter>
-    </ClInclude>
     <ClInclude Include="Rendering\Models\Cube.h">
       <Filter>Rendering\Models</Filter>
     </ClInclude>
@@ -139,6 +133,9 @@
     </ClInclude>
     <ClInclude Include="Rendering\Models\CustomModel.h">
       <Filter>Rendering\Models</Filter>
+    </ClInclude>
+    <ClInclude Include="Rendering\Textures\texture.hpp">
+      <Filter>Rendering\Textures</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

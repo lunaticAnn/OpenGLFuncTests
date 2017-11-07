@@ -160,9 +160,8 @@
     <ClCompile Include="Rendering\Models\Cube.cpp" />
     <ClCompile Include="Rendering\Models\CustomModel.cpp" />
     <ClCompile Include="Rendering\Models\Model.cpp" />
-    <ClCompile Include="Rendering\Models\Quad.cpp" />
-    <ClCompile Include="Rendering\Models\Triangle.cpp" />
     <ClCompile Include="Rendering\Systems\ParticleSystem.cpp" />
+    <ClCompile Include="Rendering\Textures\texture.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Core\Init\ContextInfo.h" />
@@ -180,10 +179,9 @@
     <ClInclude Include="Rendering\Models\Cube.h" />
     <ClInclude Include="Rendering\Models\CustomModel.h" />
     <ClInclude Include="Rendering\Models\Model.h" />
-    <ClInclude Include="Rendering\Models\Quad.h" />
-    <ClInclude Include="Rendering\Models\Triangle.h" />
     <ClInclude Include="Rendering\Systems\BaseSystem.h" />
     <ClInclude Include="Rendering\Systems\ParticleSystem.h" />
+    <ClInclude Include="Rendering\Textures\texture.hpp" />
     <ClInclude Include="Rendering\VertexFormat.h" />
     <ClInclude Include="resource.h" />
   </ItemGroup>
